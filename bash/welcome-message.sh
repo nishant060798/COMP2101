@@ -17,15 +17,41 @@
 ###############
 # Variables   #
 ###############
-title="Overlord"
-myname="dennis"
-hostname="myhostname"
+USER="nishant"
+hostname01=$(hostname)
 
+day=`date +"%A"`
+time=`date +"%T"`
+
+if [ "$day" == "Monday" ]; then
+  title="Monday is borring"
+elif [ "$day" == "Tuesday" ]; then
+  title="Tuesday is better"
+elif [ "$day" == "Wednesday" ]; then
+  title="Wednesday is nice"
+elif [ "$day" == "Thursday" ]; then
+  title="Thursday  is good"
+elif [ "$day" == "Friday" ]; then
+  title="Friday  is great"
+elif [ "$day" == "Saturday" ]; then
+ title="Saturday  is best"
+elif [ "$day" == "Sunday" ]; then
+  title="Sunday  is awesome"
+
+fi
 ###############
 # Main        #
 ###############
-cat <<EOF
 
-Welcome to planet $hostname, "$title $myname!"
+output=$(cat <<EOF
+
+WELCOME to planet $hostname01, "$title $USER!"
+
+It is $day at $time
+
+EOF
+)
+cat <<EOF
+$(cowsay $output)
 
 EOF
