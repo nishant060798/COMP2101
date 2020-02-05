@@ -43,7 +43,13 @@ fi
 # Main        #
 ###############
 
-output=$("WELCOME to planet $hostname01, "$title $USER!" It is $day at $time"
+output=$(cat <<EOF
+
+WELCOME to planet $hostname01, "$title $USER!"
+
+It is $day at $time
+
+EOF
 )
 cat <<EOF
 $(cowsay $output)
