@@ -62,8 +62,10 @@ EOF
 #####
 # define the interface being summarized
 #interface="ens33"
-interfaces=$(ifconfig | grep -w -o '^[^ ][^ ]*:' | tr -d :)
-for interface in $interfaces; do
+pcinterfaces=$(ifconfig | grep -w -o '^[^ ][^ ]*:' | tr -d :)
+for interface in $pcinterfaces; do
+
+if [ "$interface" != "lo" ]; then
 
      # Find an address and hostname for the interface being summarized
      # we are assuming there is only one IPV4 address assigned to this interface
@@ -83,7 +85,9 @@ for interface in $interfaces; do
     Network Address : $network_address
     Network Name    : $network_name
 EOF
+fi
 #####
 # End of per-interface report
 #####
+
 done
