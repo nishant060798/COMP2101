@@ -82,7 +82,6 @@ for interface in $interfaces; do
     Name            : $ipv4_hostname
     Network Address : $network_address
     Network Name    : $network_name
-
 EOF
 #####
 # End of per-interface report
